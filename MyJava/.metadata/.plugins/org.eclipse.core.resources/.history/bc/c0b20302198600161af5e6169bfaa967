@@ -1,0 +1,67 @@
+package l3;
+
+public class Employee {
+	private String mane;
+	private float rate;
+	private float hour;
+	
+	private static int totalSum;
+	
+
+	public Employee() {
+	}
+	
+	public Employee(String mane, float rate) {
+		super();
+		this.mane = mane;
+		this.rate = rate;
+	}
+
+	public Employee(String mane, float rate, float hour) {
+		super();
+		this.mane = mane;
+		this.rate = rate;
+		this.hour = hour;
+	}
+
+	public String getMane() {
+		return mane;
+	}
+
+	public void setMane(String mane) {
+		this.mane = mane;
+	}
+
+	public float getRate() {
+		return rate;
+	}
+
+	public void setRate(float rate) {
+		this.rate = rate;
+	}
+
+	public float getHour() {
+		return hour;
+	}
+
+	public void setHour(float hour) {
+		this.hour = hour;
+	}
+		
+	public float salary (){
+		return this.rate * this.hour;
+	}
+	
+	public void changeRate (float rate){
+		this.rate = rate;
+	}
+	
+	public void bonuses (){}
+
+	@Override
+	public String toString() {
+		return "Employee [mane=" + mane + ", rate=" + rate + ", hour=" + hour + "]";
+	}
+	
+
+}
