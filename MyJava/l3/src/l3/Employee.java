@@ -1,7 +1,7 @@
 package l3;
 
 public class Employee {
-	private String mane;
+	private String name;
 	private float rate;
 	private int hour;
 	
@@ -11,26 +11,26 @@ public class Employee {
 	public Employee() {
 	}
 	
-	public Employee(String mane, float rate) {
+	public Employee(String name, float rate) {
 		super();
-		this.mane = mane;
+		this.name = name;
 		this.rate = rate;
 	}
 
-	public Employee(String mane, float rate, int hour) {
+	public Employee(String name, float rate, int hour) {
 		super();
-		this.mane = mane;
+		this.name = name;
 		this.rate = rate;
 		this.hour = hour;
 		totalSum += this.rate * this.hour;
 	}
 
-	public String getMane() {
-		return mane;
+	public String getname() {
+		return name;
 	}
 
-	public void setMane(String mane) {
-		this.mane = mane;
+	public void setname(String name) {
+		this.name = name;
 	}
 
 	public float getRate() {
@@ -74,7 +74,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [mane=" + mane + ", rate=" + rate + ", hour=" + hour +   ", bonus=" + bonuses() +  "]";
+		return "Employee [name=" + name + ", rate=" + rate + ", hour=" + hour +   ", bonus=" + bonuses() +  "]";
 	}
 	
 
