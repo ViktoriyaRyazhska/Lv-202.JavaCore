@@ -48,11 +48,9 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", birthYear=" + birthYear +
-                ", age=" + age() +
-                '}';
+        return "My name is " + name +
+                ", I was born in " + birthYear +
+                " and I am " + age() + " years old.";
     }
 
 }
