@@ -98,10 +98,10 @@ public class Lesson3_Person {
 		System.out.println(employeeThree);
 
 		// salary calculation
-		System.out.println(employeeOne.getName() + employeeOne.salary(employeeOne.getRate(), employeeOne.getHours()));
-		System.out.println(employeeTwo.getName() + employeeTwo.salary(employeeTwo.getRate(), employeeTwo.getHours()));
+		System.out.println(employeeOne.getName() +"'s salary is " + employeeOne.salary(employeeOne.getRate(), employeeOne.getHours()));
+		System.out.println(employeeTwo.getName() +"'s salary is " + employeeTwo.salary(employeeTwo.getRate(), employeeTwo.getHours()));
 		System.out.println(
-				employeeThree.getName() + employeeThree.salary(employeeThree.getRate(), employeeThree.getHours()));
+				employeeThree.getName() + "'s salary is " + employeeThree.salary(employeeThree.getRate(), employeeThree.getHours()));
 
 		// bonuses calculation
 		System.out.println("Nick bonus -> "
