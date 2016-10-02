@@ -2,8 +2,6 @@ package Lesson3.HomeWork;
 
 import java.util.Calendar;
 
-import Lesson3.Employee;
-
 //This class was named like "Lesson3_Person" only for better recognizing on GitHub, 
 //I know that's not according to Java naming convention, SORRY!!!
 public class Lesson3_Person {
@@ -28,6 +26,9 @@ public class Lesson3_Person {
 	//two private fields: name and birthYear (the birthday year)
 	private String name;
 	private int birthYear;
+	
+	//variable age for calculating person aging
+	private int age;
 	
 	//default constructor and constructor with 2 parameters
 	public Lesson3_Person(String name, int birthYear) {
@@ -78,42 +79,38 @@ public class Lesson3_Person {
 	@Override
 	public String toString() {
 		return "Person: name - " + name + "; year of birth -> " + birthYear;
-	}	
+	}		
 	
-	
-	//METHOD MAIN !!!
+	//METHOD MAIN !!! In the method main() create 5 objects of Person type and input information about them.
 	public static void main(String[] args) {
+		
+		//creating of 5 objects
+		Lesson3_Person personOne = new Lesson3_Person();
+		Lesson3_Person personTwo = new Lesson3_Person();
+		Lesson3_Person personThree = new Lesson3_Person();
+		Lesson3_Person personFour = new Lesson3_Person();
+		Lesson3_Person personFive = new Lesson3_Person();
+		
+		//typing info about object using method input()
+		personOne.input("Vas", 1989);
+		personTwo.input("Maryna", 1990);
+		personThree.input("Roman", 1980);
+		personFour.input("Klar", 1987);
+		personFive.input("Zack", 1994);
+		
+		//input information about persons using method output()
+		personOne.output();
+		personTwo.output();
+		personThree.output();
+		personFour.output();
+		personFive.output();
 
-		// In the method main() create 3 objects of Employee type.
-		// Input information about them.
-		Employee employeeOne = new Employee("Nick", 22, 50);
-		Employee employeeTwo = new Employee("Kane", 20, 45);
-		Employee employeeThree = new Employee("Lara", 18, 40);
-
-		int totalHours = employeeOne.getHours() + employeeTwo.getHours() + employeeThree.getHours();
-
-		// toString checking
-		System.out.println(employeeOne);
-		System.out.println(employeeTwo);
-		System.out.println(employeeThree);
-
-		// salary calculation
-		System.out.println(employeeOne.getName() +"'s salary is " + employeeOne.salary(employeeOne.getRate(), employeeOne.getHours()));
-		System.out.println(employeeTwo.getName() +"'s salary is " + employeeTwo.salary(employeeTwo.getRate(), employeeTwo.getHours()));
-		System.out.println(
-				employeeThree.getName() + "'s salary is " + employeeThree.salary(employeeThree.getRate(), employeeThree.getHours()));
-
-		// bonuses calculation
-		System.out.println("Nick bonus -> "
-				+ employeeOne.bonuses(employeeOne.salary(employeeOne.getRate(), employeeOne.getHours())));
-		System.out.println("Kane bonus -> "
-				+ employeeTwo.bonuses(employeeTwo.salary(employeeTwo.getRate(), employeeTwo.getHours())));
-		System.out.println("Lara bonus -> "
-				+ employeeThree.bonuses(employeeThree.salary(employeeThree.getRate(), employeeThree.getHours())));
-
-		// Display the total hours of all workers to screen
-		System.out.println("Total hours of all workers to screen -> " + totalHours);
+		// checking of method age()
+		personOne.age(personOne.getBirthYear());
+		personTwo.age(personTwo.getBirthYear());
+		personThree.age(personThree.getBirthYear());
+		personFour.age(personFour.getBirthYear());
+		personFive.age(personFive.getBirthYear());
 
 	}
-
 }
