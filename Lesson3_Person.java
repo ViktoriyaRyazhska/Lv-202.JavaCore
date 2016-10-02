@@ -2,6 +2,8 @@ package Lesson3.HomeWork;
 
 import java.util.Calendar;
 
+import Lesson3.Employee;
+
 //This class was named like "Lesson3_Person" only for better recognizing on GitHub, 
 //I know that's not according to Java naming convention, SORRY!!!
 public class Lesson3_Person {
@@ -78,4 +80,40 @@ public class Lesson3_Person {
 		return "Person: name - " + name + "; year of birth -> " + birthYear;
 	}	
 	
+	
+	//METHOD MAIN !!!
+	public static void main(String[] args) {
+
+		// In the method main() create 3 objects of Employee type.
+		// Input information about them.
+		Employee employeeOne = new Employee("Nick", 22, 50);
+		Employee employeeTwo = new Employee("Kane", 20, 45);
+		Employee employeeThree = new Employee("Lara", 18, 40);
+
+		int totalHours = employeeOne.getHours() + employeeTwo.getHours() + employeeThree.getHours();
+
+		// toString checking
+		System.out.println(employeeOne);
+		System.out.println(employeeTwo);
+		System.out.println(employeeThree);
+
+		// salary calculation
+		System.out.println(employeeOne.getName() + employeeOne.salary(employeeOne.getRate(), employeeOne.getHours()));
+		System.out.println(employeeTwo.getName() + employeeTwo.salary(employeeTwo.getRate(), employeeTwo.getHours()));
+		System.out.println(
+				employeeThree.getName() + employeeThree.salary(employeeThree.getRate(), employeeThree.getHours()));
+
+		// bonuses calculation
+		System.out.println("Nick bonus -> "
+				+ employeeOne.bonuses(employeeOne.salary(employeeOne.getRate(), employeeOne.getHours())));
+		System.out.println("Kane bonus -> "
+				+ employeeTwo.bonuses(employeeTwo.salary(employeeTwo.getRate(), employeeTwo.getHours())));
+		System.out.println("Lara bonus -> "
+				+ employeeThree.bonuses(employeeThree.salary(employeeThree.getRate(), employeeThree.getHours())));
+
+		// Display the total hours of all workers to screen
+		System.out.println("Total hours of all workers to screen -> " + totalHours);
+
+	}
+
 }
