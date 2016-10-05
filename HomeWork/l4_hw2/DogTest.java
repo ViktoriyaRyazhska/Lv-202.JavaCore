@@ -16,6 +16,7 @@ public class DogTest {
     @After
     public void tearDown() {
         dog = null;
+        dog1 = null;
     }
 
     @Test
