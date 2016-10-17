@@ -8,7 +8,7 @@ Oleh Kovalyk
 
 Taras Kukharets
 
-Mariia-Olena Halai
+Mariia Halai //okay
 
 Valeriy Yavorskyy
 
