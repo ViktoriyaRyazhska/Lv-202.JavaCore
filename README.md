@@ -17,3 +17,5 @@ Ruslan Romanchak
 Andrii Hrynus
 
 Andrii Mahun
+
+Stepan Khariv
