@@ -35,7 +35,7 @@ public class Student {
 		return "Student [name=" + name + ", course=" + course + "]";
 	}
 
-	public static void printStudents(List<Student> students, int course) {
+	public static void printStudents(List students, Integer course) {
 		Iterator it = students.iterator();
 		Student student;
 		while (it.hasNext()) {
