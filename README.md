@@ -10,7 +10,7 @@ Taras Kukharets
 
 Mariia Halai //okay
 
-Valeriy Yavorskyy
+Valerii Yavorskyi
 
 Ruslan Romanchak
 
