@@ -5,6 +5,9 @@ public class Main {
 		
 		TenNumbers num = new TenNumbers();
 		FiveNumbers numbers = new FiveNumbers();
+		Month month = new Month();
+		
+		System.out.println(month.getMonth());
 		
 		System.out.println(getProductOfAllEnteredEvenNumbers());
 		numbers.print(numbers.enterFiveNumbers());

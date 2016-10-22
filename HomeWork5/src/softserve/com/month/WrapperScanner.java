@@ -2,7 +2,7 @@ package softserve.com.month;
 
 import java.util.Scanner;
 
-public class WrapperScanner {
+public class WrapperScanner{
 	private static WrapperScanner wrapperScanner;
 
 	private Scanner scanner = new Scanner(System.in);
@@ -24,4 +24,5 @@ public class WrapperScanner {
 	public int getNextInt(){
 		return scanner.nextInt();
 	}
+
 }

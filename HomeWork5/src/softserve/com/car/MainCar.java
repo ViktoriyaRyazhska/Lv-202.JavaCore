@@ -3,12 +3,11 @@ package softserve.com.car;
 public class MainCar {
 
 	Car[] getArrayCars() {
-		Car car1 = new Car("BMW", 1991, 2.0);
-		Car car2 = new Car("AUDI", 2014, 2.5);
-		Car car3 = new Car("BMW", 1997, 2.0);
-		Car car4 = new Car("BMW", 2007, 2.0);
-
-		Car[] cars = { car1, car2, car3, car4 };
+		Car[] cars = { new Car("BMW", 1991, 2.0),
+				new Car("AUDI", 2014, 2.5), 
+				new Car("BMW", 1997, 2.0), 
+				new Car("BMW", 2007, 2.0) 
+				};
 		return cars;
 	}
 

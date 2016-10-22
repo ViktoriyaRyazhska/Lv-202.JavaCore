@@ -14,16 +14,15 @@ public class FiveNumbers {
 
 	int positionOfSecondPositiveNumber(int[] fiveNumbers) {
 		int position = 0;
-		int i = 0;
-		for (; i < fiveNumbers.length; i++) {
+		for (int i = 0; i < fiveNumbers.length; i++) {
 			if (fiveNumbers[i] > 0) {
 				position++;
 				if (position == 2) {
-					break;
+					return i + 1;
 				}
 			}
 		}
-		return i + 1;
+		return 0;
 	}
 
 	int positionMinimumInTheArray(int[] fiveNumbers) {
