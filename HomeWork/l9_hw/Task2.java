@@ -9,14 +9,14 @@ public class Task2 {
         int end = 100;
         int i = 10;
         String str = "";
+        System.out.println("Please enter numbers in range for 1 to 100");
         while (i > 0){
             try {
-                 int c = readNumber(start, end);
+                int c = readNumber(start, end);
                 if ((end - c) < i) throw new BadNumberException("This number does not satisfy the condition loop!");
                 start = c;
                 i--;
                 str += String.valueOf(c) + " ";
-                //System.out.println(c);
             } catch (OutRangeException e) {
                 System.err.println(e.toString());
             } catch (BadNumberException e) {
