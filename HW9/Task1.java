@@ -3,8 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-	private double a;
-	private double b;
 
 	public static void main(String[] args) {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
