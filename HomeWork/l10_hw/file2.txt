@@ -1,0 +1,4 @@
+Number of lines in file1.txt:	20
+The longest line in file1.txt.
+	Moscow, then when I finish studding I'll go to my country to try to get a job in the air companies. 
+My name Ruslan and birthday date: 4.08.84
