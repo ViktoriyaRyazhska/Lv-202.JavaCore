@@ -1,0 +1,4 @@
+The number of lines in MyCareer.txt: 7
+The longest line is: and then I was graduated at Lviv Ivan Franco National University
+Your name is: Andrea
+Your birth date is: 06.03.1993

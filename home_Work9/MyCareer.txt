@@ -1,0 +1,7 @@
+Hello,
+My name is Andrea Mahun
+I was born in 06.03.1993
+I was study at school
+and then I was graduated at Lviv Ivan Franco National University
+Now I work at "HaluchFarm" and study Java at SofrServe
+the end.
