@@ -1,0 +1,4 @@
+Number of lines in file1.txt:	6
+The longest line in file1.txt:
+	Nowadays it is very important to know a foreign language, especially English. More and more people need qualified teachers to teach them today. I understand that this profession is greatly demanded and that is why I would like to become an English teacher. This year I am going to enter the department of foreign languages at the local University. To get an education of a teacher it is not the only thing one needs to become a real teacher. Good teachers continue learning their subject all their career to be able to answer any questions that might arise. They should be an example of competence for their pupils.
+My name is Olena ,  21.09.94
