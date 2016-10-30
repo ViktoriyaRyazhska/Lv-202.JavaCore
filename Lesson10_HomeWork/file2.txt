@@ -1,0 +1,1 @@
+quantity of lines in input file: 34	|||the longest line: Lviv Polytechnic National University, Institute of mechanical engineering and transport, direction "Mechanical Engineering", master degree. your name : valerii yavorskyi  your birth date : 14.08.1989
