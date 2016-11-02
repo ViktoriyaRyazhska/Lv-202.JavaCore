@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Pupil.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(98,151,85); font-style: italic; }
+.s3 { color: rgb(106,135,89); }
+.s4 { color: rgb(104,151,187); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Pupil.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">import </span><span class="s1">java.util.List</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span><span class="s1"> 
+ 
+ 
+</span><span class="s2">/** 
+ * Created by Babajko on 29.10.2016. 
+ */</span><span class="s1"> 
+</span><span class="s0">public class </span><span class="s1">Pupil </span><span class="s0">extends </span><span class="s1">People { 
+    </span><span class="s0">private </span><span class="s1">String group</span><span class="s0">;</span><span class="s1"> 
+    </span><span class="s0">private </span><span class="s1">List&lt;Lesson&gt; ls</span><span class="s0">;</span><span class="s1"> 
+ 
+    </span><span class="s0">public </span><span class="s1">Pupil(String name</span><span class="s0">, </span><span class="s1">String surname</span><span class="s0">, </span><span class="s1">School school</span><span class="s0">, </span><span class="s1">String group) { 
+        </span><span class="s0">super</span><span class="s1">(name</span><span class="s0">, </span><span class="s1">surname</span><span class="s0">, </span><span class="s1">school)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">this</span><span class="s1">.group = group</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">public </span><span class="s1">Pupil(String name</span><span class="s0">, </span><span class="s1">String surname</span><span class="s0">, </span><span class="s1">School school</span><span class="s0">, </span><span class="s1">String group</span><span class="s0">, </span><span class="s1">List&lt;Lesson&gt; ls) { 
+        </span><span class="s0">super</span><span class="s1">(name</span><span class="s0">, </span><span class="s1">surname</span><span class="s0">, </span><span class="s1">school)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">this</span><span class="s1">.group = group</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">this</span><span class="s1">.ls = ls</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">setGroup(String group) { 
+        </span><span class="s0">this</span><span class="s1">.group = group</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">setLs(List&lt;Lesson&gt; ls) { 
+        </span><span class="s0">this</span><span class="s1">.ls = ls</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">public </span><span class="s1">String getGroup() { 
+        </span><span class="s0">return </span><span class="s1">group</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">public </span><span class="s1">List&lt;Lesson&gt; getLs() { 
+        </span><span class="s0">return </span><span class="s1">ls</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    @Override 
+    </span><span class="s0">public </span><span class="s1">String printInfo() { 
+        </span><span class="s0">return super</span><span class="s1">.printInfo() + </span><span class="s3">&quot;</span><span class="s0">\t</span><span class="s3">Pupil: &quot; </span><span class="s1">+ group</span><span class="s0">;</span><span class="s1"> 
+ 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">printRating (){ 
+        </span><span class="s0">for </span><span class="s1">(Lesson lss : </span><span class="s0">this</span><span class="s1">.ls){ 
+            System.out.println(</span><span class="s3">&quot;</span><span class="s0">\t</span><span class="s3">&quot; </span><span class="s1">+ lss.getLesson().toString().toLowerCase() + </span><span class="s3">&quot;</span><span class="s0">\t</span><span class="s3">: &quot; </span><span class="s1">+ lss.getRating())</span><span class="s0">;</span><span class="s1"> 
+        } 
+    } 
+    </span><span class="s0">public double </span><span class="s1">readAVGRating(){ 
+        </span><span class="s0">double </span><span class="s1">sum = </span><span class="s4">0</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">for </span><span class="s1">(Lesson lss : </span><span class="s0">this</span><span class="s1">.ls){ 
+            sum += lss.getRating()</span><span class="s0">;</span><span class="s1"> 
+        } 
+        </span><span class="s0">return </span><span class="s1">sum/</span><span class="s0">this</span><span class="s1">.ls.size()</span><span class="s0">;</span><span class="s1"> 
+    } 
+    </span><span class="s0">public static </span><span class="s1">Pupil createPupil(Scanner sc</span><span class="s0">, </span><span class="s1">School sh</span><span class="s0">, </span><span class="s1">List&lt;Lesson&gt; ls){ 
+        System.out.print(</span><span class="s3">&quot;Please enter name: &quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String name = sc.nextLine()</span><span class="s0">;</span><span class="s1"> 
+        System.out.print(</span><span class="s3">&quot;Please enter surname: &quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String surname = sc.nextLine()</span><span class="s0">;</span><span class="s1"> 
+        System.out.print(</span><span class="s3">&quot;Please enter group: &quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String group = sc.nextLine()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">return new </span><span class="s1">Pupil(name</span><span class="s0">, </span><span class="s1">surname</span><span class="s0">, </span><span class="s1">sh</span><span class="s0">, </span><span class="s1">group</span><span class="s0">, </span><span class="s1">ls)</span><span class="s0">;</span><span class="s1"> 
+    } 
+} 
+</span></pre>
+</body>
+</html>

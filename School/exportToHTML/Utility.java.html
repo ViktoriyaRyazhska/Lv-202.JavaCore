@@ -1,0 +1,233 @@
+<html>
+<head>
+<title>Utility.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(98,151,85); font-style: italic; }
+.s3 { color: rgb(106,135,89); }
+.s4 { color: rgb(104,151,187); }
+.s5 { color: rgb(128,128,128); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Utility.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">import </span><span class="s1">java.io.*</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java.util.InputMismatchException</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java.util.List</span><span class="s0">;</span><span class="s1"> 
+</span><span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s2">/** 
+ * Created by Babajko on 31.10.2016. 
+ */</span><span class="s1"> 
+</span><span class="s0">public class </span><span class="s1">Utility { 
+    </span><span class="s0">public static void </span><span class="s1">printSeparator(</span><span class="s0">char </span><span class="s1">ch</span><span class="s0">, int </span><span class="s1">count){ 
+        String str = </span><span class="s3">&quot;&quot;</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; count</span><span class="s0">; </span><span class="s1">i++){ 
+            str += ch</span><span class="s0">;</span><span class="s1"> 
+        } 
+        System.out.println(str)</span><span class="s0">;</span><span class="s1"> 
+    } 
+    </span><span class="s5">//Запис Ліста в файл</span><span class="s1"> 
+    </span><span class="s0">static void </span><span class="s1">writeCollFile(String fileName</span><span class="s0">, </span><span class="s1">List list)</span><span class="s0">throws </span><span class="s1">IOException { 
+        FileOutputStream fr = </span><span class="s0">null;</span><span class="s1"> 
+        ObjectOutputStream obs = </span><span class="s0">null;</span><span class="s1"> 
+        </span><span class="s0">try </span><span class="s1">{ 
+            fr = </span><span class="s0">new </span><span class="s1">FileOutputStream(fileName)</span><span class="s0">;</span><span class="s1"> 
+            obs = </span><span class="s0">new </span><span class="s1">ObjectOutputStream(fr)</span><span class="s0">;</span><span class="s1"> 
+            obs.writeObject(list)</span><span class="s0">;</span><span class="s1"> 
+        } </span><span class="s0">finally </span><span class="s1">{ 
+            </span><span class="s0">if </span><span class="s1">(obs != </span><span class="s0">null</span><span class="s1">) obs.close()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">if </span><span class="s1">(fr != </span><span class="s0">null</span><span class="s1">) fr.close()</span><span class="s0">;</span><span class="s1"> 
+        } 
+    } 
+    </span><span class="s5">//Читання Ліста з файлу</span><span class="s1"> 
+    </span><span class="s0">static </span><span class="s1">List readCollFile(String fileName) </span><span class="s0">throws </span><span class="s1">IOException</span><span class="s0">, </span><span class="s1">ClassNotFoundException { 
+        FileInputStream fi = </span><span class="s0">null;</span><span class="s1"> 
+        ObjectInputStream ois = </span><span class="s0">null;</span><span class="s1"> 
+        List ls = </span><span class="s0">null;</span><span class="s1"> 
+        </span><span class="s0">try </span><span class="s1">{ 
+            fi = </span><span class="s0">new </span><span class="s1">FileInputStream(fileName)</span><span class="s0">;</span><span class="s1"> 
+            ois = </span><span class="s0">new </span><span class="s1">ObjectInputStream(fi)</span><span class="s0">;</span><span class="s1"> 
+            ls = (List) ois.readObject()</span><span class="s0">;</span><span class="s1"> 
+        } </span><span class="s0">finally </span><span class="s1">{ 
+            </span><span class="s0">if </span><span class="s1">(ois != </span><span class="s0">null</span><span class="s1">) ois.close()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">if </span><span class="s1">(fi != </span><span class="s0">null</span><span class="s1">) fi.close()</span><span class="s0">;</span><span class="s1"> 
+        } 
+        </span><span class="s0">return </span><span class="s1">ls</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">static </span><span class="s1">String lessonsStr(){ 
+        </span><span class="s0">return </span><span class="s1">Lessons.BIOLOGY.toString() + </span><span class="s3">&quot;, &quot;</span><span class="s1"> 
+                + Lessons.CHEMISTRY.toString() + </span><span class="s3">&quot;, &quot;</span><span class="s1"> 
+                + Lessons.HISTORY.toString() + </span><span class="s3">&quot;, &quot;</span><span class="s1"> 
+                + Lessons.MATH.toString() + </span><span class="s3">&quot;, &quot;</span><span class="s1"> 
+                + Lessons.PHYSICS.toString()</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">static void </span><span class="s1">printEmployees(List&lt;Employee&gt; employeeList) { 
+        </span><span class="s0">for </span><span class="s1">(Employee em : employeeList) { 
+            System.out.println(em.printInfo() + </span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        } 
+    } 
+ 
+    </span><span class="s0">static void </span><span class="s1">printPupil(List&lt;Pupil&gt; pupils</span><span class="s0">, </span><span class="s1">Scanner sc) { 
+        System.out.print(</span><span class="s3">&quot;Enter group :&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String group = sc.nextLine().trim()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(group.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)) printReport(pupils)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">else </span><span class="s1">printReport(pupils</span><span class="s0">, </span><span class="s1">group.toUpperCase())</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">static </span><span class="s1">List addLessonList(List&lt;Lesson&gt; list){ 
+        list.add(</span><span class="s0">new </span><span class="s1">Lesson(Lessons.HISTORY))</span><span class="s0">;</span><span class="s1"> 
+        list.add(</span><span class="s0">new </span><span class="s1">Lesson(Lessons.BIOLOGY))</span><span class="s0">;</span><span class="s1"> 
+        list.add(</span><span class="s0">new </span><span class="s1">Lesson(Lessons.PHYSICS))</span><span class="s0">;</span><span class="s1"> 
+        list.add(</span><span class="s0">new </span><span class="s1">Lesson(Lessons.MATH))</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">return </span><span class="s1">list</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">public static void </span><span class="s1">printReport(List&lt;Pupil&gt; ls</span><span class="s0">, </span><span class="s1">String gr){ 
+        </span><span class="s0">for</span><span class="s1">(Pupil pu : ls){ 
+            </span><span class="s0">if </span><span class="s1">(pu.getGroup().equals(gr)) { 
+                System.out.println(pu.printInfo())</span><span class="s0">;</span><span class="s1"> 
+                pu.printRating()</span><span class="s0">;</span><span class="s1"> 
+                System.out.println(pu.readAVGRating())</span><span class="s0">;</span><span class="s1"> 
+                Utility.printSeparator(</span><span class="s3">'-'</span><span class="s0">, </span><span class="s4">50</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                System.out.println()</span><span class="s0">;</span><span class="s1"> 
+            } 
+        } 
+    } 
+ 
+    </span><span class="s0">public static void </span><span class="s1">printReport(List&lt;Pupil&gt; ls){ 
+        </span><span class="s0">for</span><span class="s1">(Pupil pupil : ls){ 
+            System.out.println(pupil.printInfo())</span><span class="s0">;</span><span class="s1"> 
+            pupil.printRating()</span><span class="s0">;</span><span class="s1"> 
+            System.out.println(</span><span class="s3">&quot;</span><span class="s0">\t</span><span class="s3">mean score: &quot; </span><span class="s1">+ pupil.readAVGRating())</span><span class="s0">;</span><span class="s1"> 
+            Utility.printSeparator(</span><span class="s3">'-'</span><span class="s0">, </span><span class="s4">50</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            System.out.println()</span><span class="s0">;</span><span class="s1"> 
+        } 
+    } 
+ 
+    </span><span class="s0">static void </span><span class="s1">estimatePupil(Scanner sc</span><span class="s0">, </span><span class="s1">List&lt;Pupil&gt; pupils){ 
+        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; pupils.size()</span><span class="s0">; </span><span class="s1">i++){ 
+            System.out.println(</span><span class="s3">&quot; &quot; </span><span class="s1">+ i + </span><span class="s3">&quot;. &quot;</span><span class="s1">+ pupils.get(i).printInfo())</span><span class="s0">;</span><span class="s1"> 
+        } 
+        System.out.print(</span><span class="s3">&quot;Enter number pupil:&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">int </span><span class="s1">puNum = checkWriteStr(sc.nextLine()</span><span class="s0">, </span><span class="s1">pupils.size())</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(puNum == -</span><span class="s4">1</span><span class="s1">) { 
+            System.out.println(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Entered an incorrect type or number!!!</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">return;</span><span class="s1"> 
+        } 
+        Pupil pupil = pupils.get(puNum)</span><span class="s0">;</span><span class="s1"> 
+ 
+        System.out.println(pupil.printInfo())</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; pupil.getLs().size()</span><span class="s0">; </span><span class="s1">i++){ 
+            System.out.println(</span><span class="s3">&quot; &quot; </span><span class="s1">+ i + </span><span class="s3">&quot;. &quot;</span><span class="s1">+ pupil.getLs().get(i).getLesson().toString().toLowerCase() 
+                    + </span><span class="s3">&quot;</span><span class="s0">\t</span><span class="s3">&quot; </span><span class="s1">+ pupil.getLs().get(i).getRating() 
+            )</span><span class="s0">;</span><span class="s1"> 
+        } 
+        System.out.print(</span><span class="s3">&quot;Enter number lesson:&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+ 
+        </span><span class="s0">int </span><span class="s1">lesNum = checkWriteStr(sc.nextLine()</span><span class="s0">, </span><span class="s1">pupil.getLs().size())</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(lesNum == -</span><span class="s4">1</span><span class="s1">) { 
+            System.out.println(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Entered an incorrect type or number!!!</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">return;</span><span class="s1"> 
+        } 
+        Lesson lesson = pupil.getLs().get(lesNum)</span><span class="s0">;</span><span class="s1"> 
+        System.out.println(</span><span class="s3">&quot;Current estimate: &quot; </span><span class="s1">+ lesson.getRating())</span><span class="s0">;</span><span class="s1"> 
+        System.out.print(</span><span class="s3">&quot;Enter estimate:&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        lesson.setRating(checkWriteStr(sc.nextLine()</span><span class="s0">, </span><span class="s4">100</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">static void </span><span class="s1">salaryEmployees(List&lt;Employee&gt; employeeList) { 
+        </span><span class="s0">for </span><span class="s1">(Employee em : employeeList) { 
+            System.out.print(em.getName() + </span><span class="s3">&quot; &quot; </span><span class="s1">+ em.getSurname())</span><span class="s0">;</span><span class="s1"> 
+            System.out.println(</span><span class="s3">&quot; salary: &quot; </span><span class="s1">+ em.calcSalary())</span><span class="s0">;</span><span class="s1"> 
+        } 
+    } 
+ 
+    </span><span class="s0">public static </span><span class="s1">Employee createEmployee(Scanner sc</span><span class="s0">, </span><span class="s1">School sh){ 
+        System.out.print(</span><span class="s3">&quot;Please enter name: &quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String name = sc.nextLine()</span><span class="s0">;</span><span class="s1"> 
+        System.out.print(</span><span class="s3">&quot;Please enter surname: &quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String surname = sc.nextLine()</span><span class="s0">;</span><span class="s1"> 
+        System.out.println(</span><span class="s3">&quot;Select which add employee</span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+ 
+                </span><span class="s3">&quot; 0. Employee</span><span class="s0">\n</span><span class="s3">&quot; </span><span class="s1">+ 
+                </span><span class="s3">&quot; 1. Teacher&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        String chCreate = sc.nextLine().trim().toLowerCase()</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(chCreate.equals(</span><span class="s3">&quot;0&quot;</span><span class="s1">)) { 
+            System.out.print(</span><span class="s3">&quot;Please enter position: &quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            String position = sc.nextLine()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">return new </span><span class="s1">OtherEmployee(name</span><span class="s0">, </span><span class="s1">surname</span><span class="s0">, </span><span class="s1">sh</span><span class="s0">, </span><span class="s1">position)</span><span class="s0">;</span><span class="s1"> 
+        }</span><span class="s0">else if</span><span class="s1">(chCreate.equals(</span><span class="s3">&quot;1&quot;</span><span class="s1">)){ 
+            System.out.print(</span><span class="s3">&quot;Please enter lesson: &quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            System.out.println(Utility.lessonsStr().toLowerCase())</span><span class="s0">;</span><span class="s1"> 
+            String lesson = sc.nextLine().trim().toLowerCase()</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">return new </span><span class="s1">Teacher(name</span><span class="s0">, </span><span class="s1">surname</span><span class="s0">, </span><span class="s1">sh</span><span class="s0">, </span><span class="s1">Lesson.strToLesson(lesson))</span><span class="s0">;</span><span class="s1"> 
+        }</span><span class="s0">else return null;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">static void </span><span class="s1">delPeople(Scanner sc</span><span class="s0">, </span><span class="s1">List... ls) { 
+        </span><span class="s0">for </span><span class="s1">(List&lt;People&gt; list : ls) { 
+            </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; list.size()</span><span class="s0">; </span><span class="s1">i++) { 
+                System.out.println(</span><span class="s3">&quot; &quot; </span><span class="s1">+ i +</span><span class="s3">&quot;. &quot; </span><span class="s1">+ list.get(i).printInfo())</span><span class="s0">;</span><span class="s1"> 
+            } 
+            System.out.println(</span><span class="s3">&quot;Enter the number of an employee to delete&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">int </span><span class="s1">remoteNum = checkWriteStr(sc.nextLine()</span><span class="s0">, </span><span class="s1">list.size())</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">if </span><span class="s1">(remoteNum == -</span><span class="s4">1</span><span class="s1">) { 
+                System.out.println(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Entered an incorrect type or number!!!</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+                </span><span class="s0">return;</span><span class="s1"> 
+            } 
+            list.remove(remoteNum)</span><span class="s0">;</span><span class="s1"> 
+        } 
+    } 
+ 
+    </span><span class="s0">public static void </span><span class="s1">toChangeSalaryEmployee(Scanner sc</span><span class="s0">, </span><span class="s1">List&lt;Employee&gt; employeeList) { 
+        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s4">0</span><span class="s0">; </span><span class="s1">i &lt; employeeList.size()</span><span class="s0">; </span><span class="s1">i++) { 
+            System.out.println(</span><span class="s3">&quot; &quot; </span><span class="s1">+ i +</span><span class="s3">&quot;. &quot; </span><span class="s1">+ employeeList.get(i).getSurname() + </span><span class="s3">&quot; &quot;</span><span class="s1"> 
+                + employeeList.get(i).getName() 
+                + </span><span class="s3">&quot;</span><span class="s0">\t</span><span class="s3">working time:</span><span class="s0">\t</span><span class="s3">&quot; </span><span class="s1">+ employeeList.get(i).getWorkingHours() 
+                + </span><span class="s3">&quot;</span><span class="s0">\t</span><span class="s3">salary</span><span class="s0">\t</span><span class="s3">&quot; </span><span class="s1">+ employeeList.get(i).getSalary() 
+            )</span><span class="s0">;</span><span class="s1"> 
+        } 
+        System.out.print(</span><span class="s3">&quot;Enter number employee :&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">int </span><span class="s1">num = checkWriteStr(sc.nextLine()</span><span class="s0">, </span><span class="s1">employeeList.size())</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(num == -</span><span class="s4">1</span><span class="s1">) { 
+            System.out.println(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">Entered an incorrect type or number!!!</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">return;</span><span class="s1"> 
+        } 
+        System.out.print(</span><span class="s3">&quot;Enter the number of hours :&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">int </span><span class="s1">timeWorking = checkWriteStr(sc.nextLine()</span><span class="s0">, </span><span class="s4">100000</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(num == -</span><span class="s4">1</span><span class="s1">) { 
+            System.out.println(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">You have entered incorrect data!!!</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">return;</span><span class="s1"> 
+        } 
+        employeeList.get(num).setWorkingHours(timeWorking)</span><span class="s0">;</span><span class="s1"> 
+        System.out.print(</span><span class="s3">&quot;Enter wage per hour :&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">int </span><span class="s1">salary = checkWriteStr(sc.nextLine()</span><span class="s0">, </span><span class="s4">100000</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(num == -</span><span class="s4">1</span><span class="s1">) { 
+            System.out.println(</span><span class="s3">&quot;</span><span class="s0">\n</span><span class="s3">You have entered incorrect data!!!</span><span class="s0">\n</span><span class="s3">&quot;</span><span class="s1">)</span><span class="s0">;</span><span class="s1"> 
+            </span><span class="s0">return;</span><span class="s1"> 
+        } 
+        employeeList.get(num).setSalary(salary)</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">static int </span><span class="s1">checkWriteStr(String str</span><span class="s0">, int </span><span class="s1">max) { 
+        str = (str.replaceAll(</span><span class="s3">&quot;[</span><span class="s0">\\</span><span class="s3">D]&quot;</span><span class="s0">,</span><span class="s3">&quot;&quot;</span><span class="s1">))</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(str.equals(</span><span class="s3">&quot;&quot;</span><span class="s1">)) </span><span class="s0">return </span><span class="s1">-</span><span class="s4">1</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">if </span><span class="s1">(Integer.parseInt(str) &gt;= max) </span><span class="s0">return </span><span class="s1">-</span><span class="s4">1</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">return </span><span class="s1">Integer.parseInt(str)</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+ 
+} 
+</span></pre>
+</body>
+</html>

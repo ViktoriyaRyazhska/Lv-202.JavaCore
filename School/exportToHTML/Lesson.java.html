@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>Lesson.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+.s0 { color: rgb(204,120,50); }
+.s1 { color: rgb(169,183,198); }
+.s2 { color: rgb(98,151,85); font-style: italic; }
+.s3 { color: rgb(106,135,89); }
+</style>
+</head>
+<BODY BGCOLOR="#2b2b2b">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Lesson.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">import </span><span class="s1">java.io.Serializable</span><span class="s0">;</span><span class="s1"> 
+ 
+</span><span class="s2">/** 
+ * Created by Babajko on 29.10.2016. 
+ */</span><span class="s1"> 
+</span><span class="s0">public class </span><span class="s1">Lesson </span><span class="s0">implements </span><span class="s1">Serializable { 
+    </span><span class="s0">private </span><span class="s1">Lessons lesson</span><span class="s0">;</span><span class="s1"> 
+    </span><span class="s0">private int </span><span class="s1">rating</span><span class="s0">;</span><span class="s1"> 
+ 
+    Lesson(Lessons lesson) { 
+        </span><span class="s0">this</span><span class="s1">.lesson = lesson</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    Lessons getLesson() { 
+        </span><span class="s0">return </span><span class="s1">lesson</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">int </span><span class="s1">getRating() { 
+        </span><span class="s0">return </span><span class="s1">rating</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">public void </span><span class="s1">setLesson(Lessons lesson) { 
+        </span><span class="s0">this</span><span class="s1">.lesson = lesson</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">void </span><span class="s1">setRating(</span><span class="s0">int </span><span class="s1">rating) { 
+        </span><span class="s0">this</span><span class="s1">.rating = rating</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+    </span><span class="s0">static </span><span class="s1">Lessons strToLesson(String str){ 
+        Lessons lessons</span><span class="s0">;</span><span class="s1"> 
+        </span><span class="s0">switch </span><span class="s1">(str.toUpperCase().trim()){ 
+            </span><span class="s0">case </span><span class="s3">&quot;HISTORY&quot;</span><span class="s1">: lessons = Lessons.HISTORY</span><span class="s0">; break;</span><span class="s1"> 
+            </span><span class="s0">case </span><span class="s3">&quot;MATH&quot;</span><span class="s1">: lessons = Lessons.MATH</span><span class="s0">; break;</span><span class="s1"> 
+            </span><span class="s0">case </span><span class="s3">&quot;PHYSICS&quot;</span><span class="s1">: lessons = Lessons.PHYSICS</span><span class="s0">; break;</span><span class="s1"> 
+            </span><span class="s0">case </span><span class="s3">&quot;BIOLOGY&quot;</span><span class="s1">: lessons = Lessons.BIOLOGY</span><span class="s0">; break;</span><span class="s1"> 
+            </span><span class="s0">case </span><span class="s3">&quot;CHEMISTRY&quot;</span><span class="s1">: lessons = Lessons.CHEMISTRY</span><span class="s0">; break;</span><span class="s1"> 
+            </span><span class="s0">default</span><span class="s1">: lessons = </span><span class="s0">null;</span><span class="s1"> 
+        } 
+        </span><span class="s0">return </span><span class="s1">lessons</span><span class="s0">;</span><span class="s1"> 
+    } 
+ 
+} 
+</span></pre>
+</body>
+</html>
